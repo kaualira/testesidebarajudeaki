@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25em;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #6649b8;
+}
+
+.navbar {
+    width: 5em;
+    height: 100vh;
+    
+    position: fixed;
+    background-color: #0232B5;
+    transition: 200ms ease;
+}
+
+.navbar:hover {
+    width: 18em;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link {
+        display: flex;
+        justify-content: flex-start; /* Alinha a imagem e o texto à esquerda no hover */
+        align-items: center;  /* Centraliza a imagem e o texto verticalmente */
+        flex-direction: row;
+        padding: 10px 0;
+        margin-top: 40px;
+        text-decoration: none;
+        position: relative; /* Necessário para o posicionamento do ::after */
+}
+
+.item-text {
+    display: none;
+    margin-left: 1rem; /* Espaçamento entre a imagem e o texto */
+    text-decoration: none;
+}
+
+.navbar:hover .item-text {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-family: "Phudu", system-ui;
+}
+
+.navbar:hover .nav-link {
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+/* Mantém o tamanho das imagens em 40% sem afetar o alinhamento */
+.home, .instituicoes, .dinheiro, .voluntario {
+    width: 40px; /* Tamanho fixo da imagem */
+    height: auto; /* Mantém a proporção */
+    margin-left: 0; /* Remove a margem à esquerda */
+}
+
+.divlogo {
+    width: 100%; /* Mantém a largura total */
+    height: auto; /* Permite que a altura seja ajustada automaticamente */
+    background-color: white; /* Garante que o fundo seja branco */
+    display: flex; /* Usa flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 30px; /* Isso está correto */
+    margin-left: -30px; /* Adicione isso para remover qualquer espaço na esquerda */
+}
+
+.logo {
+    width: 80%; /* Define a largura da logo */
+    max-width: 200px; /* Limita a largura máxima */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-left: 0; /* Remove margem à esquerda da logo */
+}
+
+.navbar:hover .divlogo {
+    /* padding-right: 50px; */
+    margin: 0;
+
+}
+
+.navbar:hover .logo {
+    width: 80%; /* Diminui a largura da logo quando o hover está ativo */
+    
+}
+
+.seuperfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza a imagem e o texto */
+}
+
+.perfil {
+    width: auto; /* Tamanho padrão da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto 5px; /* Centraliza a imagem horizontalmente e adiciona espaço abaixo */
+    transition: width 200ms ease; /* Transição suave */
+}
+
+.navbar:hover .perfil {
+    margin-left: 109px;
+}
+
+.navbar:hover .perfil {
+    width: 50%; /* Reduz a largura para 50% quando hover ativo */
+}
+
+/* Adiciona a margem à esquerda apenas durante o hover */
+.navbar:hover .home, 
+.navbar:hover .instituicoes, 
+.navbar:hover .dinheiro, 
+.navbar:hover .voluntario {
+    margin-left: 15px; /* Adiciona margem à esquerda apenas durante o hover */
+    transition: width 200ms ease; /* Transição suave */
+}
+
+.navbar:hover .nav-item {
+    width: 17em;
+}
+
+.navbar:hover .seuperfil {
+    width: 100%;
+    .perfil {
+        width: 25%;
+    }
+}
+
+.navbar:hover .nav-link::after {
+    content: ""; /* Cria um conteúdo vazio para o pseudoelemento */
+    position: absolute; /* Posiciona o pseudoelemento absolutamente em relação ao .nav-link */
+    height: 2px; /* Altura da linha */
+    background-color: white; /* Cor da linha */
+    width: 0; /* Inicia com largura 0 */
+    left: 50%; /* Posiciona no centro do link */
+    bottom: 0; /* Alinha a linha na parte inferior do link */
+    transition: width 0.4s ease, left 0.4s ease; /* Transições suaves */
+}
+
+.navbar:hover .nav-link:hover::after {
+    width: 100%; /* Expande a largura da linha quando o link é hover */
+    left: 0; /* Move a linha para a esquerda */
+}
